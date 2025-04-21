@@ -8,7 +8,7 @@
  * @subpackage Medical Circle
  */
 get_header();
-global $medical_circle_customizer_all_values;
+$medical_circle_customizer_all_values = medical_circle_get_theme_options();
 ?>
 <div class="wrapper inner-main-title">
 	<div class="container">
@@ -16,7 +16,7 @@ global $medical_circle_customizer_all_values;
 			<?php
 			the_archive_title( '<h1 class="page-title">', '</h1>' );
 			the_archive_description( '<div class="taxonomy-description">', '</div>' );
-			if( 1 == $medical_circle_customizer_all_values['medical-circle-show-breadcrumb'] ){
+			if ( 1 == $medical_circle_customizer_all_values['medical-circle-show-breadcrumb'] ) {
 				medical_circle_breadcrumbs();
 			}
 			?>
@@ -25,8 +25,8 @@ global $medical_circle_customizer_all_values;
 </div>
 <div id="content" class="site-content container clearfix">
 	<?php
-	$sidebar_layout = medical_circle_sidebar_selection(get_the_ID());
-	if( 'both-sidebar' == $sidebar_layout ) {
+	$sidebar_layout = medical_circle_sidebar_selection( get_the_ID() );
+	if ( 'both-sidebar' == $sidebar_layout ) {
 		echo '<div id="primary-wrap" class="clearfix">';
 	}
 	?>
@@ -35,13 +35,14 @@ global $medical_circle_customizer_all_values;
 			<?php
 			if ( have_posts() ) :
 				/* Start the Loop */
-				while ( have_posts() ) : the_post();
+				while ( have_posts() ) :
+					the_post();
 
 					/*
-                     * Include the Post-Format-specific template for the content.
-                     * If you want to override this in a child theme, then include a file
-                     * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                     */
+					 * Include the Post-Format-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					 */
 					get_template_part( 'template-parts/content', get_post_format() );
 
 				endwhile;
@@ -49,16 +50,18 @@ global $medical_circle_customizer_all_values;
 			else :
 				get_template_part( 'template-parts/content', 'none' );
 
-			endif; ?>
+			endif;
+			?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-	<?php 
+	<?php
 	get_sidebar( 'left' );
 	get_sidebar();
-	if( 'both-sidebar' == $sidebar_layout ) {
+	if ( 'both-sidebar' == $sidebar_layout ) {
 		echo '</div>';
 	}
 	?>
 </div><!-- #content -->
-<?php get_footer();
+<?php
+get_footer();

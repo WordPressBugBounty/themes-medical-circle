@@ -8,11 +8,12 @@
  * @subpackage Medical Circle
  */
 get_header();
-global $medical_circle_customizer_all_values;
+$medical_circle_customizer_all_values = medical_circle_get_theme_options();
 
-while ( have_posts() ) : the_post();
+while ( have_posts() ) :
+	the_post();
 
-    the_content();
+	the_content();
 
 endwhile; // End of the loop.
 

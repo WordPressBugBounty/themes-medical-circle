@@ -8,14 +8,14 @@
  * @subpackage Medical Circle
  */
 get_header();
-global $medical_circle_customizer_all_values;
+$medical_circle_customizer_all_values = medical_circle_get_theme_options();
 ?>
 <div class="wrapper inner-main-title">
 	<div class="container">
 		<header class="entry-header init-animate">
 			<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'medical-circle' ); ?></h1>
 			<?php
-			if( 1 == $medical_circle_customizer_all_values['medical-circle-show-breadcrumb'] ){
+			if ( 1 == $medical_circle_customizer_all_values['medical-circle-show-breadcrumb'] ) {
 				medical_circle_breadcrumbs();
 			}
 			?>
@@ -34,4 +34,5 @@ global $medical_circle_customizer_all_values;
 		</main><!-- #main -->
 	</div><!-- #primary -->
 </div><!-- #content -->
-<?php get_footer();
+<?php
+get_footer();

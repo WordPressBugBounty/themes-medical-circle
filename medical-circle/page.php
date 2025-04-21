@@ -13,20 +13,20 @@
  * @subpackage Medical Circle
  */
 get_header();
-global $medical_circle_customizer_all_values;
+$medical_circle_customizer_all_values  = medical_circle_get_theme_options();
 $medical_circle_hide_front_page_header = $medical_circle_customizer_all_values['medical-circle-hide-front-page-header'];
 
-if(
+if (
 	( is_front_page() && 1 != $medical_circle_hide_front_page_header )
-	|| !is_front_page()
-){
+	|| ! is_front_page()
+) {
 	?>
 	<div class="wrapper inner-main-title">
 		<div class="container">
 			<header class="entry-header init-animate">
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 				<?php
-				if( 1 == $medical_circle_customizer_all_values['medical-circle-show-breadcrumb'] ){
+				if ( 1 == $medical_circle_customizer_all_values['medical-circle-show-breadcrumb'] ) {
 					medical_circle_breadcrumbs();
 				}
 				?>
@@ -38,15 +38,16 @@ if(
 ?>
 <div id="content" class="site-content container clearfix">
 	<?php
-	$sidebar_layout = medical_circle_sidebar_selection(get_the_ID());
-	if( 'both-sidebar' == $sidebar_layout ) {
+	$sidebar_layout = medical_circle_sidebar_selection( get_the_ID() );
+	if ( 'both-sidebar' == $sidebar_layout ) {
 		echo '<div id="primary-wrap" class="clearfix">';
 	}
 	?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 			<?php
-			while ( have_posts() ) : the_post();
+			while ( have_posts() ) :
+				the_post();
 
 				get_template_part( 'template-parts/content', 'page' );
 
@@ -60,12 +61,13 @@ if(
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-<?php 
+<?php
 get_sidebar( 'left' );
 get_sidebar();
-if( 'both-sidebar' == $sidebar_layout ) {
+if ( 'both-sidebar' == $sidebar_layout ) {
 	echo '</div>';
 }
 ?>
 </div><!-- #content -->
-<?php get_footer();
+<?php
+get_footer();

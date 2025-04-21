@@ -4,8 +4,8 @@ Contributors: acmethemes
 Tags: blog, entertainment, education, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
 Requires at least: 4.8
 Requires PHP: 5.6.25
-Tested up to: 6.7
-Stable tag: 3.0.6
+Tested up to: 6.8
+Stable tag: 3.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
